@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
-import './App.css';
+
+import Layer from './components/Layer/Layer';
+import MenuBuilder from './containers/MenuBuilder/MenuBuilder';
 
 class App extends Component {
-  render() {
+  render () {
     return (
-      <div className="App"></div>
+      <div>
+        <Layer>
+          <MenuBuilder />
+        </Layer>
+      </div>
     );
   }
 }
 
 export default App;
+
