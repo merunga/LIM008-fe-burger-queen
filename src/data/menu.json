@@ -31,13 +31,13 @@
     },
     {
         "id": 6,
-        "type": "hamburger",
+        "category": "hamburger",
         "name": "Hamburguesa doble",
         "price": 15
     },
     {
         "id": 7,
-        "type": "accompaniment",
+        "category": "accompaniment",
         "name": "Papas fritas",
         "price": 5
     },
