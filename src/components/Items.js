@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './layout/layout.css';
 
-export class Items extends Component {
+class Items extends Component {
   render() {
     const { name, price } = this.props.menu;
     return (
@@ -14,7 +14,7 @@ export class Items extends Component {
   }
 }
 
-export default Items
+export default Items;
 
 
 

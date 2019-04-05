@@ -11,7 +11,7 @@ class App extends Component {
     menu: []
   };
   componentDidMount() {
-    fetch('https://raw.githubusercontent.com/cinthyasegura/LIM008-fe-burger-queen/develop/src/data/menu.json')
+    fetch('https://raw.githubusercontent.com/cinthyasegura/LIM008-fe-burger-queen/2ba3df5cbef051f1557745e2e24645d44a33375e/src/data/menu.json')
      .then(resp => resp.json())
      .then(json =>this.setState({ menu: json }))
   }
