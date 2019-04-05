@@ -7,3 +7,8 @@
     float: right;
     color: #fff;
 }
+.items {
+    background-color: #f4f4f4;
+    padding: 5px;
+    border-bottom: 1px #ccc dotted;
+}
