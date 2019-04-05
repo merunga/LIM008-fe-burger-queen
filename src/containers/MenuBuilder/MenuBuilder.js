@@ -1,28 +1,36 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
 import Aux from '../../hoc/Utils/Utils';
 import ProductsList from '../../components/Menu/ProductsList/ProductsList'
 
-class MenuBuilder extends Component {
+const menuBuilder = () => {
+    
+    const [count, setCount] = useState(0);
+    const [id, setId] = useState(null);
 
-    addProductHandler = ( id ) => {
+    const addProductHandler = ( id ) => {
+        setCount(count + 1);
+        setId(id)
         console.log('producto agregado', id);
     };
 
-    removeProductHandler = ( id ) => {
+    const removeProductHandler = ( id ) => {
+        setCount(count - 1);
+        setId(id);
         console.log('producto eliminado', id);
     };
 
-    render() {
         return (
             <Aux>
+                <p>{count}</p>
                 <ProductsList
-                    addedProduct={this.addProductHandler}
-                    removedProduct={this.removeProductHandler}/>
-                <div>Order Summary</div>
+                    addedProduct={addProductHandler}
+                    removedProduct={removeProductHandler}/>
+                <div>
+                    <p>{id}</p>
+                </div>
             </Aux>
         );
     }
-}
 
-export default MenuBuilder;
+export default menuBuilder;

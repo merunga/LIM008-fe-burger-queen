@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Product from './Product/Product';
+// import dinningData from '../../../services/firestore';
 
 const description = [
     {id: 'cafeA', label: 'Café Americano', price: 3},
