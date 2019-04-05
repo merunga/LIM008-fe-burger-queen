@@ -27,6 +27,7 @@ const menuBuilder = () => {
                     addedProduct={addProductHandler}
                     removedProduct={removeProductHandler}/>
                 <div>
+                    <div>Order Summary</div>
                     <p>{id}</p>
                 </div>
             </Aux>
