@@ -16,8 +16,8 @@ const ProductsList = ( props ) => {
 
   useEffect(async () => {
     const result = await db.collection('/dining').get();
-    const data = await result.data;
-      setDiningData(data);
+    const data = await {id: result.id, ...result.data()};
+    return setDiningData(data);
       
     //   return db.collection('/dining').onSnapshot(query => {
     //     setDiningData(query.docs.map(d => d.data()) );
@@ -31,7 +31,7 @@ const ProductsList = ( props ) => {
     //   console.log(data);
     //   debugger;
 
-  });
+  }, []);
 
 
 
