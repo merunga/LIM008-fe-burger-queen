@@ -1,35 +1,43 @@
 import React, { useState } from 'react';
 
 import Aux from '../../hoc/Utils/Utils';
-import ProductsList from '../../components/Menu/ProductsList/ProductsList'
+import ProductsArea from '../../components/Menu/ProductsArea/ProductsArea';
+import OrderSumary from '../../components/Menu/OrderSumary/OrderSumary';
+import { addProduct, removeProduct } from '../../services/pureFunctions';
 
 const menuBuilder = () => {
     
     const [count, setCount] = useState(0);
     const [id, setId] = useState(null);
+    // const [totalPrice, setTotalPrice] = useState(0);
+    const [products, setProducts] = useState([]);
+    // const [purchased, setPurchased] = useState(false);
+    // const [cooked, setCooked] = useState(false);
+    // const [waiterServed, setServed] = useState(false);
 
-    const addProductHandler = ( id ) => {
+    const addProductHandler = ( selectedID, selectedPrice, selectedLabel ) => {
+        
+        setProducts(addProduct(products, selectedID, selectedPrice, selectedLabel));
         setCount(count + 1);
-        setId(id)
-        console.log('producto agregado', id);
+        setId(selectedID);
+        console.log('producto agregado', selectedID);
     };
 
-    const removeProductHandler = ( id ) => {
+    const removeProductHandler = ( selectedID ) => {
+        setProducts(removeProduct(products, selectedID));
         setCount(count - 1);
-        setId(id);
-        console.log('producto eliminado', id);
+        setId(selectedID);
+        console.log('producto eliminado', selectedID);
     };
 
         return (
             <Aux>
-                <p>{count}</p>
-                <ProductsList
+                <ProductsArea
                     addedProduct={addProductHandler}
                     removedProduct={removeProductHandler}/>
-                <div>
-                    <div>Order Summary</div>
+                <OrderSumary products={products}/>
+                    <p>{count}</p>
                     <p>{id}</p>
-                </div>
             </Aux>
         );
     }
