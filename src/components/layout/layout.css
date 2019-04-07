@@ -1,5 +1,5 @@
 .header {
-    background: #333;
+    background: #43414C;
     color: #fff;
     padding: 10px;
 }
@@ -11,5 +11,17 @@
     background-color: #f4f4f4;
     padding: 5px;
     border-bottom: 1px #ccc dotted;
-    width: 45%;
+    width: 48.5%;
+}
+.options {
+    cursor: pointer;
+    background: #FF9D57;
+    text-transform: uppercase;
+}
+.icons {
+    width: 80px;
+    height: auto;
+}
+.pointer {
+    cursor: pointer;
 }

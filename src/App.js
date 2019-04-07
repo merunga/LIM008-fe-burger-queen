@@ -11,7 +11,7 @@ const App = () => {
   const [menu, setMenu] = useState([]);
   let [options, setOptions] = useState('');
   useEffect(() => {
-    fetch('https://raw.githubusercontent.com/cinthyasegura/LIM008-fe-burger-queen/2ba3df5cbef051f1557745e2e24645d44a33375e/src/data/menu.json')
+    fetch('https://raw.githubusercontent.com/cinthyasegura/LIM008-fe-burger-queen/firstHistory/src/data/menu.json')
     .then(resp => resp.json())
     .then(data => {
       setMenu(menu.concat(data))  
@@ -19,20 +19,22 @@ const App = () => {
     }) 
   }, []);
 
-  const filteredList = filter => {
-    return setOptions(options = filter);
+  const matchOption = option => {
+    return setOptions(options = option);
   };
   
   return (
     <div>
       <Header />
-      <Tabs filtered={options} onclick={filteredList} />
+      <Tabs matchOption={matchOption} />
       <ProductList menu={menu.filter(item => item.category === options)}/>
       <User />
       <Amount />
     </div>
   )
 };
+
+{/* <Tabs filtered={options} matchOption={matchOption} /> */}
 
 export default App;
 

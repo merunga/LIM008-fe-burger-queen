@@ -30,7 +30,7 @@ class User extends Component {
             <input
               type="text"
               name="fullname"
-              placeholder="fullname"
+              placeholder="Nombre del cliente"
               onChange = {this.inputUser}
               value = {this.state.fullname}
             />

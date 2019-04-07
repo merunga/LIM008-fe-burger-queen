@@ -1,12 +1,12 @@
 import React from 'react';
-//  import Items from '../Items';
+import './layout.css';
 
-const Tabs = ({ onclick }) => {
+const Tabs = ({ matchOption }) => {
   return (
-    <ul>
-      <li onClick={() => onclick('breakfast')}>Desayuno</li>
-      <li onClick={() => onclick('menu')}>Menú</li>
-      <li onClick={() => onclick('drinks')}>Bebidas</li>
+    <ul className="list-group list-group-horizontal-sm col-md-6 text-center">
+      <li className="list-group-item list-group-item-action options" onClick={() => matchOption('breakfast')}>Desayuno</li>
+      <li className="list-group-item list-group-item-action options" onClick={() => matchOption('menu')}>Menú</li>
+      <li className="list-group-item list-group-item-action options" onClick={() => matchOption('drinks')}>Bebidas</li>
     </ul>
   )
 }
