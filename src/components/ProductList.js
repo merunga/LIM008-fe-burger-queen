@@ -2,7 +2,7 @@ import React from 'react';
 import './layout/layout.css';
 import Product from './Product';
 
-const ProductList = ({ menu, addOrder }) => {
+const ProductList = ({ menu, addOrderItem }) => {
  return (
   menu.map((item, index) => (
     <Product 
@@ -10,7 +10,7 @@ const ProductList = ({ menu, addOrder }) => {
       image={item.image} 
       name={item.name} 
       price={item.price} 
-      addOrder={() => addOrder(item.id)}
+      addOrder={() => addOrderItem(item.id)}
     />  
   ))
  );

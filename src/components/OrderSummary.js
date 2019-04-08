@@ -1,13 +1,34 @@
 import React from 'react';
 
-const OrderSummary = ({ newProduct }) => {
+const OrderSummary = ({ newOrderItem }) => {
   return (
-    newProduct.map(item => (
-      <div>
-        <p>{item.name}</p>
-        <p>{item.price}</p>
-      </div>
-    ))
+    <table>
+      <thead>
+        <tr>
+          <th>Cantidad</th>
+          <th>Producto</th>
+          <th>Precio</th>
+        </tr>
+      </thead>
+      <tbody>
+        {newOrderItem.length > 0 ? (
+          newOrderItem.map(item => (
+            <tr key={item.id}>
+              <td>
+                <button>+</button>
+                <button> - </button>
+              </td>
+              <td>{item.name}</td>
+              <td>{item.price}</td>
+            </tr>
+          ))
+        ) : (
+          <tr>
+            <td>Sin orden</td>
+          </tr>
+        )}
+      </tbody>
+    </table>
   )
 };
 
