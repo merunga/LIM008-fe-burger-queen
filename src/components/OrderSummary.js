@@ -1,6 +1,7 @@
 import React from 'react';
+import './layout/layout.css';
 
-const OrderSummary = ({ newOrderItem }) => {
+const OrderSummary = ({ newOrderItem, deleteItem }) => {
   return (
     <table>
       <thead>
@@ -8,6 +9,7 @@ const OrderSummary = ({ newOrderItem }) => {
           <th>Cantidad</th>
           <th>Producto</th>
           <th>Precio</th>
+          <th>Eliminar</th>
         </tr>
       </thead>
       <tbody>
@@ -15,11 +17,15 @@ const OrderSummary = ({ newOrderItem }) => {
           newOrderItem.map(item => (
             <tr key={item.id}>
               <td>
-                <button>+</button>
+                <button> + </button>
+                <p>1</p>
                 <button> - </button>
               </td>
               <td>{item.name}</td>
-              <td>{item.price}</td>
+              <td><span>$</span>{item.price}</td>
+              <td>
+              <i className="far fa-trash-alt pointer" onClick={() => deleteItem(item.id)}></i>
+              </td>
             </tr>
           ))
         ) : (

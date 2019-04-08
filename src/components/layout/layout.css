@@ -25,3 +25,8 @@
 .pointer {
     cursor: pointer;
 }
+.btn-add {
+    border-radius: 50%;
+    background-color: none;
+    border: none;
+}

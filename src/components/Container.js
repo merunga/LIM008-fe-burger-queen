@@ -7,7 +7,7 @@ import OrderSummary from './OrderSummary';
 const Container = () => {
     const [menu, setMenu] = useState([]);
     let [options, setOptions] = useState('');
-    let [orderItem, setOrderItem] = useState([]);
+    const [orderItem, setOrderItem] = useState([]);
   
     useEffect(() => {
      fetch('https://raw.githubusercontent.com/cinthyasegura/LIM008-fe-burger-queen/firstHistory/src/data/menu.json')
@@ -21,16 +21,20 @@ const Container = () => {
     const addOrderItem = id => {
       menu.filter(item => {
         return item.id === id ? setOrderItem([...orderItem, item]) : item;
-      })
+      });
+    };
+
+    const deleteItem = id => {
+      setOrderItem(orderItem.filter(item => item.id !== id))
     };
 
     return (
-     <div>
+      <div>
         <Tabs matchOption={matchOption} />
         <ProductList menu={menu.filter(item => item.category === options)} addOrderItem={addOrderItem} />
-        <OrderSummary newOrderItem={orderItem}/>
+        <OrderSummary newOrderItem={orderItem} deleteItem={deleteItem}/>
         <User />
-     </div>
+      </div>
     )
 };
 
