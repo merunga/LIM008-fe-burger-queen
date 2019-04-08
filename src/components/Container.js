@@ -8,6 +8,7 @@ const Container = () => {
     const [menu, setMenu] = useState([]);
     let [options, setOptions] = useState('');
     const [orderItem, setOrderItem] = useState([]);
+    const [count, setCount] = useState([]);
   
     useEffect(() => {
      fetch('https://raw.githubusercontent.com/cinthyasegura/LIM008-fe-burger-queen/firstHistory/src/data/menu.json')
@@ -21,12 +22,17 @@ const Container = () => {
     const addOrderItem = id => {
       menu.filter(item => {
         return item.id === id ? setOrderItem([...orderItem, item]) : item;
-      });
+      }); 
     };
 
     const deleteItem = id => {
       setOrderItem(orderItem.filter(item => item.id !== id))
     };
+
+    // const addQuantity = id => {
+    //   orderItem.map(item => item.id === id ? )
+    //   return setCount(count + 1)
+    // };
 
     return (
       <div>
