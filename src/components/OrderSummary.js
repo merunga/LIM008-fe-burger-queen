@@ -1,7 +1,7 @@
 import React from 'react';
 import './layout/layout.css';
 
-const OrderSummary = ({ orderItem, deleteItem, totalPrice }) => {
+const OrderSummary = ({ orderItems, deleteItem, updateItem }) => {
   return (
     <table>
       <thead>
@@ -13,16 +13,20 @@ const OrderSummary = ({ orderItem, deleteItem, totalPrice }) => {
         </tr>
       </thead>
       <tbody>
-        {orderItem.length > 0 ? (
-          orderItem.map((item, index) => (
-            <tr key={index}>
+        {orderItems.length > 0 ? (
+          orderItems.map((item, index) => (
+            <tr key={item}>
               <td>
-                <button onClick={() => item + 1}> + </button>
-                <p>1</p>
-                <button> - </button>
+                <button onClick={() => {
+                  const newItem = { ...item };
+                  newItem.quantity += 1
+                  updateItem(index, newItem);
+                }}> + </button>
+                <p>{item.quantity}</p>
+                <button onClick={() => item.quantity -= 1}> - </button> 
               </td>
               <td>{item.name}</td>
-              <td><span>$</span>{item.price}</td>
+              <td><span>$</span>{item.price*item.quantity}</td>
               <td>
               <i className="far fa-trash-alt pointer" onClick={() => deleteItem(item.id)}></i>
               </td>
@@ -37,7 +41,7 @@ const OrderSummary = ({ orderItem, deleteItem, totalPrice }) => {
       <tfoot>
         <tr>
           <th colSpan="3">Total:</th>
-          <td>$ {totalPrice}</td>
+          <td>{orderItems.reduce((acum, element) => acum + (element.quantity*element.price), 0)} </td>
         </tr>
       </tfoot>
     </table>

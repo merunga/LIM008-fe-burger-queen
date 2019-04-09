@@ -8,9 +8,9 @@ import axios from 'axios';
 const Container = () => {
     const [menu, setMenu] = useState([]);
     let [options, setOptions] = useState('');
-    const [orderItem, setOrderItem] = useState([]);
-    let [total, setTotal] = useState(0);
-  
+    const [orderItems, setOrderItems] = useState([]);
+    // let [total, setTotal] = useState(0);
+    console.log(orderItems);
     
     useEffect(() => {
       async function fetchDta() {
@@ -29,24 +29,26 @@ const Container = () => {
     //   total = sum
     // }
 
-    const calculateTotal = (orderItem) => {
+    // const calculateTotal = (orderItem) => {
       // const values = orderItem.filter(item => item.price)
-      const values = orderItem.reduce((acum, {price}) =>  acum + price, 0)
-      setTotal(values)
-    }
+    //   const values = orderItem.reduce((acum, {price}) =>  acum + price, 0)
+    //   setTotal(values)
+    // }
 
     const addOrderItem = id => {
-      menu.filter(item => {
-        return item.id === id ? setOrderItem([...orderItem, item]) : item;
-      });
-      calculateTotal(orderItem)
+      return menu.filter(item => item.id === id ? setOrderItems([...orderItems, item]) : item);
+      // calculateTotal(orderItem)
     };
 
     const deleteItem = id => {
-      setOrderItem(orderItem.filter(item => item.id !== id))
+      setOrderItems(orderItems.filter(item => item.id !== id))
     };
     
-    console.log(total);
+    const updateItem = (index, item) => {
+      const newItems = [...orderItems];
+      newItems[index] = item;
+      setOrderItems(newItems)
+    }
     
    
     
@@ -62,7 +64,7 @@ const Container = () => {
       <div>
         <Tabs matchOption={matchOption} />
         <ProductList menu={menu.filter(item => item.category === options)} addOrderItem={addOrderItem} />
-        <OrderSummary orderItem={orderItem} deleteItem={deleteItem} totalPrice={total}/>
+        <OrderSummary orderItems={orderItems} deleteItem={deleteItem} updateItem={updateItem} />
         <User />
       </div>
     )
