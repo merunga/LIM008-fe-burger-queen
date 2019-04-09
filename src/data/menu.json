@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "quantity": 0,        
+        "quantity": 1,        
         "category": "breakfast",
         "totalOrder": 0,
         "name": "Café americano",
@@ -10,7 +10,7 @@
     },
     {
         "id": 2,
-        "quantity": 0,        
+        "quantity": 1,        
         "category": "breakfast",
         "totalOrder": 0,
         "name": "Café con leche",
@@ -19,7 +19,7 @@
     },
     {
         "id": 3,
-        "quantity": 0,        
+        "quantity": 1,        
         "category": "breakfast",
         "totalOrder": 0,
         "name": "Sandwich de jamón y queso",
@@ -28,7 +28,7 @@
     },
     {
         "id": 4,
-        "quantity": 0,        
+        "quantity": 1,        
         "category": "breakfast",
         "totalOrder": 0,
         "name": "Jugo de frutas natural",
@@ -37,7 +37,7 @@
     },
     {
         "id": 5,
-        "quantity": 0,        
+        "quantity": 1,        
         "category": "menu",
         "totalOrder": 0,
         "name": "Hamburguesa simple de res",
@@ -54,7 +54,7 @@
     },
     {
         "id": 6,
-        "quantity": 0,        
+        "quantity": 1,        
         "category": "menu",
         "totalOrder": 0,
         "name": "Hamburguesa simple de pollo",
@@ -71,7 +71,7 @@
     },
     {
         "id": 7,
-        "quantity": 0,       
+        "quantity": 1,       
         "category": "menu",
         "totalOrder": 0,
         "name": "Hamburguesa simple vegetariana",
@@ -88,7 +88,7 @@
     },
     {
         "id": 8,
-        "quantity": 0,        
+        "quantity": 1,        
         "category": "menu",
         "totalOrder": 0,
         "name": "Hamburguesa doble de res",
@@ -105,7 +105,7 @@
     },
     {
         "id": 9,
-        "quantity": 0,        
+        "quantity": 1,        
         "category": "menu",
         "totalOrder": 0,
         "name": "Hamburguesa doble de pollo",
@@ -122,7 +122,7 @@
     },
     {
         "id": 10,
-        "quantity": 0,
+        "quantity": 1,
         "category": "menu",
         "totalOrder": 0,
         "name": "Hamburguesa doble vegetariana",
@@ -139,7 +139,7 @@
     },
     {
         "id": 11,
-        "quantity": 0,
+        "quantity": 1,
         "category": "accompaniment",
         "totalOrder": 0,
         "name": "Papas fritas",
@@ -148,7 +148,7 @@
     },
     {
         "id": 12,
-        "quantity": 0,
+        "quantity": 1,
         "category": "accompaniment",
         "totalOrder": 0,
         "name": "Aros de cebolla",
@@ -157,7 +157,7 @@
     },
     {
         "id": 13,
-        "quantity": 0,
+        "quantity": 1,
         "category": "drinks",
         "totalOrder": 0,
         "name": "Agua 500ml",
@@ -166,7 +166,7 @@
     },
     {
         "id": 14,
-        "quantity": 0,
+        "quantity": 1,
         "category": "drinks",
         "totalOrder": 0,
         "name": "Agua 750ml",
@@ -175,7 +175,7 @@
     },
     {
         "id": 15,
-        "quantity": 0,
+        "quantity": 1,
         "category": "drinks",
         "totalOrder": 0,
         "name": "Gaseosa 500ml",
@@ -184,7 +184,7 @@
     },
     {
         "id": 16,
-        "quantity": 0,
+        "quantity": 1,
         "category": "drinks",
         "totalOrder": 0,
         "name": "Gaseosa 750ml",

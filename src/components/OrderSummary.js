@@ -15,15 +15,19 @@ const OrderSummary = ({ orderItems, deleteItem, updateItem }) => {
       <tbody>
         {orderItems.length > 0 ? (
           orderItems.map((item, index) => (
-            <tr key={item}>
+            <tr key={index}>
               <td>
                 <button onClick={() => {
-                  const newItem = { ...item };
-                  newItem.quantity += 1
-                  updateItem(index, newItem);
+                  const newItemToAdd = { ...item };
+                  newItemToAdd.quantity += 1
+                  updateItem(index, newItemToAdd);
                 }}> + </button>
                 <p>{item.quantity}</p>
-                <button onClick={() => item.quantity -= 1}> - </button> 
+                <button onClick={() => {
+                  const newItemToDecrease = { ...item };
+                  newItemToDecrease.quantity -=1
+                  updateItem(index, newItemToDecrease);
+                }}> - </button> 
               </td>
               <td>{item.name}</td>
               <td><span>$</span>{item.price*item.quantity}</td>
