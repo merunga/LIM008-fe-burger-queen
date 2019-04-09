@@ -1,0 +1,7 @@
+.productsArea {
+    width: 60%;
+    display: flex;
+    float: left;
+    margin: auto;
+    padding: 10px 0;
+}
