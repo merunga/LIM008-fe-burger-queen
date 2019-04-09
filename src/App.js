@@ -4,7 +4,7 @@ import Layer from './components/Layer/Layer';
 import MenuBuilder from './containers/MenuBuilder/MenuBuilder';
 
 class App extends Component {
-  render () {
+  render() {
     return (
       <div>
         <Layer>
@@ -16,4 +16,3 @@ class App extends Component {
 }
 
 export default App;
-
