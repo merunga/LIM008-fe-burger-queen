@@ -17,15 +17,19 @@ export const addProduct = (arr, currentID, currentPrice, currentLabel) => {
 };
 
 export const removeProduct = (arr, currentID) => {
-    if(arr.find((ele => ele.id === currentID))) {
+    if(arr.find(ele => ele.id === currentID && ele.cant === 1)) {
+       const i = arr.reduce((acum, ele) => {
+        acum.push(ele.id);
+        return acum;
+      }, []).indexOf( currentID );
+        if ( i !== -1 ) {
+            arr.splice( i, 1 );
+        }
+    } else if( arr.find(ele => ele.id === currentID)){
         arr.forEach(ele => {
             if(ele.id === currentID){
-                if(ele.cant === 0){
-                    return;
-                } else {
                     ele.cant--
-                }
             }})
-    } 
+    }
     return arr;
 };

@@ -5,12 +5,17 @@ import Order from './Order';
 
 const orderSumary = ( props ) => {
     let dinamicProduct = props.products
-    .map( pro => {               
+    .map( pro => {            
             return (
             <Order 
-            label={pro.label} price={pro.price}
+            key={pro.id}
+            label={pro.label} 
+            price={pro.price}
             cant={pro.cant} /> )
-        } )
+        } );
+   
+    console.log(dinamicProduct);
+        
     if (dinamicProduct.length === 0) {
         dinamicProduct = <p>Por favor, ingresa un nuevo pedido!</p>;
     }
@@ -22,7 +27,7 @@ const orderSumary = ( props ) => {
                 {dinamicProduct}
             </div>
             <div>
-                <h6>Precio Total: {props.totalPrice}</h6>
+                <h5>Total a Pagar: {props.totalPrice}</h5>
             </div>
             <div>
                 <button clicked={props.purchaseCancelled}>Cancelar</button>

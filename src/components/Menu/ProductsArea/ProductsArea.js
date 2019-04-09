@@ -3,10 +3,10 @@ import { useCollection } from 'react-firebase-hooks/firestore';
 import Product from './Product';
 import db from '../../../services/firestore';
 
-const ProductsArea = (props) => {
+const ProductsArea = ( props ) => {
 
   const { error, loading, value } = useCollection(
-    db.collection('/dining'),
+    db.collection('/dining').orderBy('type', 'asc'),
   );
 
   return (
@@ -21,7 +21,7 @@ const ProductsArea = (props) => {
               key={doc.id} 
               label={doc.data().label}
               price={doc.data().price}
-              removed={() => props.removedProduct(doc.id, doc.data().price, doc.data().label)}
+              removed={() => props.removedProduct(doc.id)}
               added={() => props.addedProduct(doc.id, doc.data().price, doc.data().label)} />
             ))}
           </span>
