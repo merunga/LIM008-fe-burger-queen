@@ -1,7 +1,7 @@
 import React from 'react';
 import './layout/layout.css';
 
-const OrderSummary = ({ newOrderItem, deleteItem }) => {
+const OrderSummary = ({ orderItem, deleteItem, totalPrice }) => {
   return (
     <table>
       <thead>
@@ -13,11 +13,11 @@ const OrderSummary = ({ newOrderItem, deleteItem }) => {
         </tr>
       </thead>
       <tbody>
-        {newOrderItem.length > 0 ? (
-          newOrderItem.map(item => (
-            <tr key={item.id}>
+        {orderItem.length > 0 ? (
+          orderItem.map((item, index) => (
+            <tr key={index}>
               <td>
-                <button> + </button>
+                <button onClick={() => item + 1}> + </button>
                 <p>1</p>
                 <button> - </button>
               </td>
@@ -34,6 +34,12 @@ const OrderSummary = ({ newOrderItem, deleteItem }) => {
           </tr>
         )}
       </tbody>
+      <tfoot>
+        <tr>
+          <th colSpan="3">Total:</th>
+          <td>$ {totalPrice}</td>
+        </tr>
+      </tfoot>
     </table>
   )
 };
