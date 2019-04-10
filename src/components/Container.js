@@ -1,17 +1,17 @@
 import React, { useState, useEffect} from 'react';
-import User from './user';
+// import User from './User';
 import Tabs from './layout/Tabs';
 import ProductList from './ProductList';
 import OrderSummary from './OrderSummary';
 import axios from 'axios';
+import firebase from 'firebase';
 
 const Container = () => {
     const [menu, setMenu] = useState([]);
     let [options, setOptions] = useState('');
     const [orderItems, setOrderItems] = useState([]);
-    // let [total, setTotal] = useState(0);
-    console.log(orderItems);
-    
+    let [clientsName, setClientsName] = useState('');
+  
     useEffect(() => {
       async function fetchDta() {
         const result = await axios('https://raw.githubusercontent.com/cinthyasegura/LIM008-fe-burger-queen/firstHistory/src/data/menu.json');
@@ -23,22 +23,10 @@ const Container = () => {
 
     const matchOption = option => setOptions(options = option);
 
-    // const calculateTotal = (orderItem) => {
-    //   let sum = 0;
-    //   setTotal(orderItem.forEach(({price}) => sum += price))
-    //   total = sum
-    // }
-
-    // const calculateTotal = (orderItem) => {
-      // const values = orderItem.filter(item => item.price)
-    //   const values = orderItem.reduce((acum, {price}) =>  acum + price, 0)
-    //   setTotal(values)
-    // }
-
     const addOrderItem = id => {
-      return menu.filter(item => item.id === id ? setOrderItems([...orderItems, item]) : item);
-      // calculateTotal(orderItem)
+      return menu.filter(item => item.id === id ? setOrderItems([...orderItems, item]) : '')
     };
+    
 
     const deleteItem = id => {
       setOrderItems(orderItems.filter(item => item.id !== id))
@@ -48,24 +36,36 @@ const Container = () => {
       const newItems = [...orderItems];
       newItems[index] = item;
       setOrderItems(newItems)
+
+    };
+
+    const updateInput = e => {
+      setClientsName(clientsName = e.target.value)
+    }
+ 
+    const addUser = e => {
+      e.preventDefault();
+      const db = firebase.firestore();
+      db.collection('users').add({clientsName, orderItems});
+      setClientsName(clientsName = '')
     }
     
-   
     
-  // calculateTotal()
-
-
-    // const addQuantity = id => {
-    //   orderItem.map(item => item.id === id ? )
-    //   return setCount(count + 1)
-    // };
-
     return (
       <div>
         <Tabs matchOption={matchOption} />
         <ProductList menu={menu.filter(item => item.category === options)} addOrderItem={addOrderItem} />
         <OrderSummary orderItems={orderItems} deleteItem={deleteItem} updateItem={updateItem} />
-        <User />
+        <form onSubmit={addUser}>
+            <input
+              type="text"
+              name="name"
+              placeholder="Nombre del cliente"
+              onChange={updateInput}
+              value={clientsName}
+            />
+            <button type="submit">Enviar a cocina</button>
+          </form>
       </div>
     )
 };
