@@ -5,7 +5,6 @@ import db from '../../../services/firestore';
 import styles from './ProductsArea.module.css';
 
 const ProductsArea = (props) => {
-
   const { error, loading, value } = useCollection(
     db.collection('/dining').orderBy('type', 'asc'),
   );
@@ -13,28 +12,28 @@ const ProductsArea = (props) => {
   return (
     <div className={styles.productsArea}>
       {error && (
-<strong>
+      <strong>
 Error:
-{' '}
-{error}
-</strong>
-)}
+        {' '}
+        {error}
+      </strong>
+      )}
       {loading && <span>Menú: Loading...</span>}
       {value && (
-          <span>
+      <span>
             Menú:
-            {' '}
-            {value.docs.map(doc => (
-              <Product
-                key={doc.id}
-                label={doc.data().label}
-                price={doc.data().price}
-                removed={() => props.removedProduct(doc.id)}
-                added={() => props.addedProduct(doc.id, doc.data().price, doc.data().label)}
-              />
-            ))}
-          </span>
-        )}
+        {' '}
+        {value.docs.map(doc => (
+          <Product
+            key={doc.id}
+            label={doc.data().label}
+            price={doc.data().price}
+            removed={() => props.removedProduct(doc.id)}
+            added={() => props.addedProduct(doc.id, doc.data().price, doc.data().label)}
+          />
+        ))}
+      </span>
+      )}
     </div>
   );
 };
