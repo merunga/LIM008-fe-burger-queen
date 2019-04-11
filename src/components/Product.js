@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './layout/layout.css';
 
 const Product = ({
-  name, image, price, addOrder,
+  name, image, price, addOrder, id,
 }) => (
   <div className="media items">
     <img className="align-self-center ml-3 mr-8 icons" src={image} alt={name} />
@@ -12,7 +12,14 @@ const Product = ({
 Precio: $
       {price}
     </p>
-    <button type="button" className="btn-add" onClick={addOrder}>+</button>
+    <button
+      type="button"
+      className="btn-add"
+      onClick={addOrder}
+      data-testid={`${id}-addOrderItem-btn`}
+    >
++
+    </button>
   </div>
 );
 
@@ -23,4 +30,5 @@ Product.propTypes = {
   image: PropTypes.string.isRequired,
   addOrder: PropTypes.func.isRequired,
   price: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
 };

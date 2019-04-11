@@ -3,16 +3,15 @@ import { render, fireEvent } from 'react-testing-library';
 import ProductList from '../ProductList';
 
 describe('ProductList', () => {
-  it('deberia poder añadir un item a la orden', () => {
+  it('ProductList', (done) => {
     const addOrderItem = (id) => {
       expect(id).toBe(1);
       done();
     };
     const { getByTestId } = render(
-      <ProductList menu={[{ id: 1, name: 'Café americano' }]} addOrderItem={addOrderItem} />,
+      <ProductList menu={[{ id: 1, name: 'Café americano', image: '' }]} addOrderItem={addOrderItem} />,
     );
-    const addOrderBtn = getByTestId('0-btn-addOrder');
+    const addOrderBtn = getByTestId('1-addOrderItem-btn');
     fireEvent.click(addOrderBtn);
-
   });
 });
