@@ -8,7 +8,7 @@ import { addProduct, removeProduct, estimateAmount } from '../../services/pureFu
 const MenuBuilder = () => {
   const [amountTotal, setAmountTotal] = useState(0);
   const [products, setProducts] = useState([]);
-  // const [clientName, setNameCliente] = useState('');
+  const [clientName, setNameClient] = useState('');
   // const [purchased, setPurchased] = useState(false);
   // const [cooked, setCooked] = useState(false);
   // const [waiterServed, setServed] = useState(false);
@@ -23,13 +23,23 @@ const MenuBuilder = () => {
     setAmountTotal(estimateAmount(products));
   };
 
+  const captureClientHandler = (event) => {
+    setNameClient(event.target.value);
+    console.log(clientName);
+  };
+
   return (
     <Aux>
       <ProductsArea
         addedProduct={addProductHandler}
         removedProduct={removeProductHandler}
       />
-      <OrderSumary products={products} totalAmount={amountTotal} />
+      <OrderSumary
+        products={products}
+        totalAmount={amountTotal}
+        clientName={clientName}
+        captureNameClient={captureClientHandler}
+      />
     </Aux>
   );
 };

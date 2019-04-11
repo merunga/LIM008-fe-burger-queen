@@ -5,7 +5,7 @@ import Aux from '../../../hoc/Utils/Utils';
 import Order from './Order';
 
 const orderSumary = ({
-  products, totalAmount, purchaseCancelled, purchaseContinued,
+  products, totalAmount, purchaseCancelled, purchaseContinued, clientName, captureNameClient,
 }) => {
   let dinamicProduct = products
     .map(pro => (
@@ -34,10 +34,16 @@ Monto Total a Pagar:
           {' '}
           {totalAmount}
         </h5>
+        <input
+          type="text"
+          value={clientName}
+          placeholder="Ingresa el nombre del cliente"
+          onChange={captureNameClient}
+        />
       </div>
       <div>
-        <button type="button" clicked={purchaseCancelled}>Cancelar</button>
-        <button type="button" clicked={purchaseContinued}>Continuar</button>
+        <button type="button" onClick={purchaseCancelled}>Cancelar</button>
+        <button type="button" onClick={purchaseContinued}>Continuar</button>
       </div>
     </Aux>
   );
