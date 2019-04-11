@@ -1,10 +1,13 @@
 import React from 'react';
 import { useCollection } from 'react-firebase-hooks/firestore';
+import PropTypes from 'prop-types';
 import Product from './Product';
 import db from '../../../services/firestore';
 import styles from './ProductsArea.module.css';
 
-const ProductsArea = (props) => {
+const ProductsArea = ({
+  removedProduct, addedProduct,
+}) => {
   const { error, loading, value } = useCollection(
     db.collection('/dining').orderBy('type', 'asc'),
   );
@@ -28,8 +31,8 @@ Error:
             key={doc.id}
             label={doc.data().label}
             price={doc.data().price}
-            removed={() => props.removedProduct(doc.id)}
-            added={() => props.addedProduct(doc.id, doc.data().price, doc.data().label)}
+            removed={() => removedProduct(doc.id)}
+            added={() => addedProduct(doc.id, doc.data().price, doc.data().label)}
           />
         ))}
       </span>
@@ -39,3 +42,8 @@ Error:
 };
 
 export default ProductsArea;
+
+ProductsArea.propTypes = {
+  removedProduct: PropTypes.func.isRequired,
+  addedProduct: PropTypes.func.isRequired,
+};

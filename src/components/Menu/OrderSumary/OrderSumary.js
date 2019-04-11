@@ -1,5 +1,6 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
 import Aux from '../../../hoc/Utils/Utils';
 import Order from './Order';
 
@@ -13,6 +14,7 @@ const orderSumary = ({
         label={pro.label}
         price={pro.price}
         cant={pro.cant}
+        subTotal={pro.cant * pro.price}
       />
     ));
 
@@ -42,3 +44,10 @@ Total a Pagar:
 };
 
 export default orderSumary;
+
+orderSumary.propTypes = {
+  products: PropTypes.arrayOf.isRequired,
+  totalAmount: PropTypes.number.isRequired,
+  purchaseCancelled: PropTypes.func.isRequired,
+  purchaseContinued: PropTypes.bool.isRequired,
+};

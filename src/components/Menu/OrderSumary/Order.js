@@ -1,11 +1,34 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const order = props => (
-    <div>
-        <h5>{props.label}</h5>
-        <p>/S {props.price}</p>
-        <p>Cantidad: {props.cant}</p>
-    </div>
+const order = ({
+  label, price, cant, subTotal,
+}) => (
+  <div>
+    <h5>{label}</h5>
+    <p>
+Precio:
+      {' '}
+      {price}
+    </p>
+    <p>
+Cantidad:
+      {' '}
+      {cant}
+    </p>
+    <p>
+Sub-Total:
+      {' '}
+      {subTotal}
+    </p>
+  </div>
 );
 
 export default order;
+
+order.propTypes = {
+  label: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  cant: PropTypes.number.isRequired,
+  subTotal: PropTypes.number.isRequired,
+};

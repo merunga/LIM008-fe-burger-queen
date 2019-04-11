@@ -1,22 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const product = props => (
+const product = ({
+  label, price, removed, added,
+}) => (
   <div>
     <div>
-      <h3>{props.label}</h3>
+      <h3>{label}</h3>
       <p>
-/S
-        {props.price}
+Precio: /S
+        {' '}
+        {price}
       </p>
     </div>
     <button
-      onClick={props.removed}
+      type="button"
+      onClick={removed}
     >
       {' '}
 -
     </button>
     <button
-      onClick={props.added}
+      type="button"
+      onClick={added}
     >
       {' '}
 +
@@ -25,3 +31,10 @@ const product = props => (
 );
 
 export default product;
+
+product.propTypes = {
+  label: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  removed: PropTypes.func.isRequired,
+  added: PropTypes.func.isRequired,
+};
