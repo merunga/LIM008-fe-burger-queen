@@ -5,7 +5,7 @@ import ProductsArea from '../../components/Menu/ProductsArea/ProductsArea';
 import OrderSumary from '../../components/Menu/OrderSumary/OrderSumary';
 import { addProduct, removeProduct, estimateAmount } from '../../services/pureFunctions';
 
-const menuBuilder = () => {
+const MenuBuilder = () => {
   const [amountTotal, setAmountTotal] = useState(0);
   const [products, setProducts] = useState([]);
   // const [purchased, setPurchased] = useState(false);
@@ -33,4 +33,4 @@ const menuBuilder = () => {
   );
 };
 
-export default menuBuilder;
+export default MenuBuilder;
