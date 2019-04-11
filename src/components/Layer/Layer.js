@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Aux from '../../hoc/Utils/Utils';
-import './Layer.css';
+import styles from './Layer.module.css';
 import Toolbar from '../Header/Toolbar/Toolbar';
 
 const layer = ({ children }) => (
   <Aux>
     <Toolbar />
-    <main className="Content">
+    <main className={styles.Content}>
       {children}
     </main>
   </Aux>

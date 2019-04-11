@@ -21,10 +21,10 @@ Error:
         {error}
       </strong>
       )}
-      {loading && <span>Menú: Loading...</span>}
+      {loading && <span>Loading...</span>}
       {value && (
       <div>
-            Menú:
+            Selecciona Producto de Preferencia:
         {' '}
         {value.docs.map(doc => (
           <Product
