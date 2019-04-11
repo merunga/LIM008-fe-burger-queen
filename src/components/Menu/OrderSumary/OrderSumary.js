@@ -30,7 +30,7 @@ const orderSumary = ({
       </div>
       <div>
         <h5>
-Total a Pagar:
+Monto Total a Pagar:
           {' '}
           {totalAmount}
         </h5>
@@ -48,6 +48,6 @@ export default orderSumary;
 orderSumary.propTypes = {
   products: PropTypes.arrayOf.isRequired,
   totalAmount: PropTypes.number.isRequired,
-  purchaseCancelled: PropTypes.func.isRequired,
-  purchaseContinued: PropTypes.bool.isRequired,
+  // purchaseCancelled: PropTypes.func,
+  // purchaseContinued: PropTypes.bool,
 };

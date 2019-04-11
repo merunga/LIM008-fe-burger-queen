@@ -23,7 +23,7 @@ Error:
       )}
       {loading && <span>Menú: Loading...</span>}
       {value && (
-      <span>
+      <div>
             Menú:
         {' '}
         {value.docs.map(doc => (
@@ -35,7 +35,7 @@ Error:
             added={() => addedProduct(doc.id, doc.data().price, doc.data().label)}
           />
         ))}
-      </span>
+      </div>
       )}
     </div>
   );

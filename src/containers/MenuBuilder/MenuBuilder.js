@@ -8,6 +8,7 @@ import { addProduct, removeProduct, estimateAmount } from '../../services/pureFu
 const MenuBuilder = () => {
   const [amountTotal, setAmountTotal] = useState(0);
   const [products, setProducts] = useState([]);
+  // const [clientName, setNameCliente] = useState('');
   // const [purchased, setPurchased] = useState(false);
   // const [cooked, setCooked] = useState(false);
   // const [waiterServed, setServed] = useState(false);
