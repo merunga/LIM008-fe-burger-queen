@@ -54,6 +54,8 @@ export default orderSumary;
 orderSumary.propTypes = {
   products: PropTypes.arrayOf.isRequired,
   totalAmount: PropTypes.number.isRequired,
+  clientName: PropTypes.string.isRequired,
+  captureNameClient: PropTypes.func.isRequired,
   // purchaseCancelled: PropTypes.func,
   // purchaseContinued: PropTypes.bool,
 };
