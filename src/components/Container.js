@@ -7,21 +7,21 @@ import OrderSummary from './OrderSummary';
 
 const Container = () => {
   const [menu, setMenu] = useState([]);
-  let [options, setOptions] = useState('');
+  const [options, setOptions] = useState('');
   const [orderItems, setOrderItems] = useState([]);
-  let [clientsName, setClientsName] = useState('');
+  const [clientsName, setClientsName] = useState('');
 
   useEffect(() => {
     async function fetchDta() {
       const result = await axios('https://raw.githubusercontent.com/cinthyasegura/LIM008-fe-burger-queen/firstHistory/src/data/menu.json');
       setMenu([...result.data, menu]);
-      setOptions(options = 'breakfast');
+      setOptions('breakfast');
     }
     fetchDta();
-  }, []);
+  }, [menu]);
 
   const matchOption = (option) => {
-    setOptions(options = option);
+    setOptions(option);
   };
 
   const addOrderItem = id => menu.filter(item => (item.id === id ? setOrderItems([...orderItems, item]) : ''));
@@ -38,14 +38,14 @@ const Container = () => {
   };
 
   const updateInput = (e) => {
-    setClientsName(clientsName = e.target.value);
+    setClientsName(e.target.value);
   };
 
   const addUser = (e) => {
     e.preventDefault();
     const db = firebase.firestore();
     db.collection('users').add({ clientsName, orderItems });
-    setClientsName(clientsName = '');
+    setClientsName('');
     setOrderItems([]);
   };
 
@@ -60,17 +60,14 @@ const Container = () => {
           />
         </div>
         <div className="col-md-6">
-          <OrderSummary orderItems={orderItems} deleteItem={deleteItem} updateItem={updateItem} />
-          <form onSubmit={addUser}>
-            <input
-              type="text"
-              name="name"
-              placeholder="Nombre del cliente"
-              onChange={updateInput}
-              value={clientsName}
-            />
-            <button className="rounded bg-info text-light" type="submit">Enviar a cocina</button>
-          </form>
+          <OrderSummary
+            orderItems={orderItems}
+            deleteItem={deleteItem}
+            updateItem={updateItem}
+            addUser={addUser}
+            updateInput={updateInput}
+            clientsName={clientsName}
+          />
         </div>
       </div>
     </div>
