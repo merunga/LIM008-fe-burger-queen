@@ -1,48 +1,45 @@
 export const addProduct = (arr, currentID, currentPrice, currentLabel) => {
-  const product = [];
+  let product;
 
   if (arr.find((ele => ele.id === currentID))) {
-    arr.forEach((ele) => {
-      if (ele.id === currentID) {
-        ele.cant += 1;
+    product = arr.map((ele) => {
+      const newElem = { ...ele };
+      if (newElem.id === currentID) {
+        newElem.cant += 1;
       }
+      return newElem;
     });
   } else {
-    product.push({
-      id: currentID,
-      label: currentLabel,
-      cant: 1,
-      price: currentPrice,
-    });
+    product = [
+      ...arr,
+      {
+        id: currentID,
+        label: currentLabel,
+        cant: 1,
+        price: currentPrice,
+      }
+    ];
   }
-  return arr.concat(product);
+  return product;
 };
 
 export const removeProduct = (arr, currentID) => {
+  let result = [...arr]
   if (arr.find(ele => ele.id === currentID && ele.cant === 1)) {
-    const i = arr.reduce((acum, ele) => {
-      acum.push(ele.id);
-      return acum;
-    }, []).indexOf(currentID);
-
-    if (i !== -1) {
-      arr.splice(i, 1);
-    }
+    result = arr.filter(e => e.id !== currentID);
   } else if (arr.find(ele => ele.id === currentID)) {
-    arr.forEach((ele) => {
-      if (ele.id === currentID) {
-        ele.cant -= 1;
+    result = arr.map((ele) => {
+      const newElem = { ...ele };
+      if (newElem.id === currentID && newElem.cant > 1) {
+        newElem.cant -= 1;
       }
+      return newElem;
     });
   }
-  return arr;
+  return result;
 };
 
-export const estimateAmount = (arr) => {
-  const reduceArr = arr.reduce((acum, ele) => {
-    acum.push(ele.cant * ele.price);
-    return acum;
-  }, []).reduce((acum, current) => acum + current, 0);
-
-  return reduceArr;
-};
+export const estimateAmount = arr => arr.reduce(
+  (acum, ele) => acum + (ele.cant * ele.price),
+  0
+);
