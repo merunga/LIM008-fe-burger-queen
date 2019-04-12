@@ -24,6 +24,7 @@ export const removeProduct = (arr, currentID) => {
       acum.push(ele.id);
       return acum;
     }, []).indexOf(currentID);
+
     if (i !== -1) {
       arr.splice(i, 1);
     }
