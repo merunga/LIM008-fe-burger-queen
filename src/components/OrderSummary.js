@@ -28,6 +28,7 @@ const OrderSummary = ({
                     newItemToAdd.quantity += 1;
                     updateItem(index, newItemToAdd);
                   }}
+                  data-testid={`${index}-updateItem-btn`}
                 >
                   {' '}
 +
@@ -40,6 +41,7 @@ const OrderSummary = ({
                     newItemToDecrease.quantity -= 1;
                     updateItem(index, newItemToDecrease);
                   }}
+                  data-testid={`${index}-updateDecreaseItem-btn`}
                 >
                   {' '}
 -

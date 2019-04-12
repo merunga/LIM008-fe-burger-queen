@@ -1,6 +1,8 @@
 import React from 'react';
-import { render, fireEvent } from 'react-testing-library';
+import { cleanup, render, fireEvent } from 'react-testing-library';
 import ProductList from '../ProductList';
+
+afterEach(cleanup);
 
 describe('ProductList', () => {
   it('ProductList', (done) => {
