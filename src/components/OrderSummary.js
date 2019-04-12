@@ -4,9 +4,9 @@ import './layout/layout.css';
 
 
 const OrderSummary = ({
-  orderItems, deleteItem, updateItem, addUser, updateInput, clientsName,
+  orderItems, deleteItem, updateItem, addOrderToFirebase, updateInput, clientsName,
 }) => (
-  <form onSubmit={addUser}>
+  <form onSubmit={addOrderToFirebase}>
     <table>
       <thead>
         <tr>
@@ -16,10 +16,10 @@ const OrderSummary = ({
           <th className="d-inline">Eliminar</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody data-testid="productTable">
         {orderItems.length > 0 ? (
           orderItems.map((item, index) => (
-            <tr key={item.id}>
+            <tr key={item.id} data-testid="productTableItem">
               <td>
                 <button
                   type="button"
@@ -94,7 +94,7 @@ OrderSummary.propTypes = {
   orderItems: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
   deleteItem: PropTypes.func.isRequired,
   updateItem: PropTypes.func.isRequired,
-  addUser: PropTypes.func.isRequired,
+  addOrderToFirebase: PropTypes.func.isRequired,
   updateInput: PropTypes.func.isRequired,
   clientsName: PropTypes.string.isRequired,
 };

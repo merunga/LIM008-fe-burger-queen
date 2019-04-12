@@ -41,7 +41,7 @@ const Container = () => {
     setClientsName(e.target.value);
   };
 
-  const addUser = (e) => {
+  const addOrderToFirebase = (e) => {
     e.preventDefault();
     const db = firebase.firestore();
     db.collection('users').add({ clientsName, orderItems });
@@ -64,7 +64,7 @@ const Container = () => {
             orderItems={orderItems}
             deleteItem={deleteItem}
             updateItem={updateItem}
-            addUser={addUser}
+            addOrderToFirebase={addOrderToFirebase}
             updateInput={updateInput}
             clientsName={clientsName}
           />

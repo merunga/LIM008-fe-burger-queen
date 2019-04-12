@@ -11,9 +11,10 @@ describe('ProductList', () => {
       done();
     };
     const { getByTestId } = render(
-      <ProductList menu={[{ id: 1, name: 'Café americano', image: '' }]} addOrderItem={addOrderItem} />,
+      <ProductList menu={[{ id: 1, name: 'Café americano', image: '', price: 0 }]} addOrderItem={addOrderItem} />,
     );
     const addOrderBtn = getByTestId('1-addOrderItem-btn');
     fireEvent.click(addOrderBtn);
   });
+  
 });

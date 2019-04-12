@@ -1,0 +1,62 @@
+import React from 'react';
+import { act } from 'react-dom/test-utils';
+import { cleanup, render, fireEvent, waitForElement } from 'react-testing-library';
+import Container from '../Container';
+import addOrderToFirebase from '../Container';
+import MockFirebase from 'mock-cloud-firestore';
+
+afterEach(cleanup);
+
+const fixtureData = {
+  __collection__: {
+    users: {
+      __doc__: {
+        abc123: {
+          clientsName: "cinthya",
+          orderItems: [
+             {
+              category: "breakfast",
+              id: 1,
+              image: "http://www.prensa-latina.cu/images/2018/diciembre/08/1-lam-cafe.jpg",
+              name: "Café americano",
+              price: 5,
+              quantity: 1
+            }
+          ]
+        }
+      }
+    }
+  }
+};
+
+// global.firebase = new MockFirebase(fixtureData, {isNaiveSnapshotListenerEnabled: true});
+  
+describe('Container', () => {
+  it('Container', () => {
+    const { queryAllByTestId } = render(<Container />);
+    let productTableItems = queryAllByTestId('productTableItem');
+    expect(productTableItems).toHaveLength(0);
+  });
+  it('container', async () => {
+    const { getByTestId, queryAllByTestId } = render(<Container />);
+    let productTableItems = queryAllByTestId('productTableItem');
+    
+    const addOrderBtn = await waitForElement(() => getByTestId('1-addOrderItem-btn'));
+    act(() => {
+      fireEvent.click(addOrderBtn);
+    })
+    
+    expect(productTableItems).toHaveLength(1);
+    
+  })
+});
+
+// describe('addOrderToFirebase', () => {
+//   it('deberia poder agregar una orden a firebase', (done) => {
+//     addOrderToFirebase = () => {
+//       expect(users.clientsName).toBe('cinthya');
+//       done();
+//     }
+//   });
+// });
+
