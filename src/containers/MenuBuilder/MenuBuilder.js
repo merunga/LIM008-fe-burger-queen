@@ -6,26 +6,21 @@ import OrderSumary from '../../components/Menu/OrderSumary/OrderSumary';
 import { addProduct, removeProduct, estimateAmount } from '../../services/pureFunctions';
 
 const MenuBuilder = () => {
-  // const [amountTotal, setAmountTotal] = useState(0);
   const [products, setProducts] = useState([]);
   const [clientName, setNameClient] = useState('');
   // const [purchased, setPurchased] = useState(false);
-  // const [cooked, setCooked] = useState(false);
-  // const [waiterServed, setServed] = useState(false);
 
   const addProductHandler = (selectedID, selectedPrice, selectedLabel) => {
     setProducts(addProduct(products, selectedID, selectedPrice, selectedLabel));
-    // setAmountTotal(estimateAmount(products));
   };
 
   const removeProductHandler = (selectedID) => {
     setProducts(removeProduct(products, selectedID));
-    // setAmountTotal(estimateAmount(products));
   };
 
-  const captureClientHandler = (event) => {
-    setNameClient(event.target.value);
-  };
+  // const captureClientHandler = (event) => {
+  //   setNameClient(event.target.value);
+  // };
 
   return (
     <Aux>
@@ -37,7 +32,7 @@ const MenuBuilder = () => {
         products={products}
         totalAmount={estimateAmount(products)}
         clientName={clientName}
-        captureNameClient={captureClientHandler}
+        captureNameClient={event => setNameClient(event.target.value)}
       />
     </Aux>
   );
