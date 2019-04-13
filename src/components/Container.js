@@ -18,7 +18,7 @@ const Container = () => {
       setOptions('breakfast');
     }
     fetchDta();
-  }, [menu]);
+  }, []);
 
   const matchOption = (option) => {
     setOptions(option);
