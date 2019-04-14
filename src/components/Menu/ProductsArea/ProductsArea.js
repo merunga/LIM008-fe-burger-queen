@@ -9,7 +9,7 @@ const ProductsArea = ({
   removedProduct, addedProduct,
 }) => {
   const { error, loading, value } = useCollection(
-    db.collection('/dining').orderBy('type', 'asc'),
+    db().collection('/dining').orderBy('type', 'asc'),
   );
 
   return (
