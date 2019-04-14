@@ -5,8 +5,8 @@ import NavItem from './NavItem/NavItem';
 
 const navBar = () => (
   <ul className={styles.NavBar}>
-    <NavItem link="/" active>MENÚ</NavItem>
-    <NavItem link="/">ORDENES</NavItem>
+    <NavItem link="/" exact>ARMAR MENÚ</NavItem>
+    <NavItem link="/orders">VER ORDENES</NavItem>
   </ul>
 );
 

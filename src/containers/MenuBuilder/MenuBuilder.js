@@ -19,13 +19,17 @@ const MenuBuilder = () => {
   };
 
   const purchaseContinueHandler = () => {
-    db().collection('orders').add({
-      products,
-      clientName,
-      date: db.FieldValue.serverTimestamp(),
-    });
-    setProducts([]);
-    setNameClient('');
+    if (products !== [] && clientName !== '') {
+      db().collection('orders').add({
+        products,
+        clientName,
+        date: db.FieldValue.serverTimestamp(),
+      });
+      setProducts([]);
+      setNameClient('');
+    } else {
+      alert('Por favor, llena todos los campos para enviar la orden a cocina.');
+    }
   };
 
   const purchaseCancelHandler = () => {

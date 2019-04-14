@@ -1,5 +1,5 @@
 .NavItem {
-    margin: 10px 0;
+    margin: 0;
     box-sizing: border-box;
     display: block;
     width: 100%;
@@ -13,6 +13,8 @@
     display: block;
     font-weight: bold;
     float: right;
+    border-radius: 5px;
+
 }
 
 .NavItem a:hover,
@@ -23,12 +25,11 @@
 
 @media (min-width: 500px) {
     .NavItem {
-        margin: 0;
+        margin: 0.3em;
         display: flex;
         height: 100%;
         width: auto;
         align-items: center;
-        float: right;
     }
     
     .NavItem a {
@@ -38,6 +39,7 @@
         padding: 16px 10px;
         font-weight: bold;
         background-color: #7D0000;
+
     }
     
     .NavItem a:hover,

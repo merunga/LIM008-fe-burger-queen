@@ -15,7 +15,7 @@ const ProductsArea = ({
 
   return (
     <div className={styles.productsArea}>
-      <h3>Selecciona el producto de tu preferencia: </h3>
+      <h3>Selecciona el producto de preferencia: </h3>
       {error && (
       <strong>
 Error:
