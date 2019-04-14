@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Product from './Product';
 import db from '../../../services/firestore';
 import styles from './ProductsArea.module.css';
+import Spinner from '../../UI/Spinner/Spinner';
 
 const ProductsArea = ({
   removedProduct, addedProduct,
@@ -22,7 +23,7 @@ Error:
         {error}
       </strong>
       )}
-      {loading && <span>Loading...</span>}
+      {loading && <Spinner />}
       {value && (
       <div>
         {value.docs.map(doc => (

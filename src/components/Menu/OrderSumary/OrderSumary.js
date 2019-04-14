@@ -59,6 +59,6 @@ orderSumary.propTypes = {
   totalAmount: PropTypes.number.isRequired,
   clientName: PropTypes.string.isRequired,
   captureNameClient: PropTypes.func.isRequired,
-  // purchaseCancelled: PropTypes.func,
-  // purchaseContinued: PropTypes.bool,
+  purchaseCancelled: PropTypes.func.isRequired,
+  purchaseContinued: PropTypes.func.isRequired,
 };
