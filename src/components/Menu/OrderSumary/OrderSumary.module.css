@@ -1,0 +1,10 @@
+.OrderSumary {
+    width: 40%;
+    display: block;
+    float: right;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    padding: 10px 0;
+    flex-flow: row;
+}

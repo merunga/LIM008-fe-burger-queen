@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Order.module.css';
 
 const order = ({
   label, price, cant, subTotal,
 }) => (
-  <div>
+  <div className={styles.Card}>
     <h5>{label}</h5>
     <p>
 Precio:

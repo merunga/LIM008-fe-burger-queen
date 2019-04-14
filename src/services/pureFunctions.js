@@ -17,14 +17,14 @@ export const addProduct = (arr, currentID, currentPrice, currentLabel) => {
         label: currentLabel,
         cant: 1,
         price: currentPrice,
-      }
+      },
     ];
   }
   return product;
 };
 
 export const removeProduct = (arr, currentID) => {
-  let result = [...arr]
+  let result = [...arr];
   if (arr.find(ele => ele.id === currentID && ele.cant === 1)) {
     result = arr.filter(e => e.id !== currentID);
   } else if (arr.find(ele => ele.id === currentID)) {
@@ -41,5 +41,5 @@ export const removeProduct = (arr, currentID) => {
 
 export const estimateAmount = arr => arr.reduce(
   (acum, ele) => acum + (ele.cant * ele.price),
-  0
+  0,
 );

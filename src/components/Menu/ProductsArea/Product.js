@@ -1,32 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Product.module.css';
 
 const product = ({
   label, price, removed, added,
 }) => (
-  <div>
-    <div>
-      <h3>{label}</h3>
-      <p>
-Precio: /S
+  <div className={styles.Card}>
+    <div className={styles.Container}>
+      <h5>{label}</h5>
+      <h5>
+/S
         {' '}
         {price}
-      </p>
-    </div>
-    <button
-      type="button"
-      onClick={removed}
-    >
-      {' '}
+      </h5>
+      <button
+        type="button"
+        onClick={removed}
+      >
+        {' '}
 -
-    </button>
-    <button
-      type="button"
-      onClick={added}
-    >
-      {' '}
+      </button>
+      <button
+        type="button"
+        onClick={added}
+      >
+        {' '}
 +
-    </button>
+      </button>
+    </div>
+
   </div>
 );
 

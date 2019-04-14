@@ -1,6 +1,6 @@
 .productsArea {
     width: 60%;
-    display: flex;
+    display: table;
     float: left;
     margin: auto;
     padding: 10px 0;

@@ -12,6 +12,7 @@
     box-sizing: border-box;
     display: block;
     font-weight: bold;
+    float: right;
 }
 
 .NavItem a:hover,
@@ -31,6 +32,7 @@
     }
     
     .NavItem a {
+        float: right;
         color: #EAA81B;
         height: 100%;
         padding: 16px 10px;

@@ -18,10 +18,6 @@ const MenuBuilder = () => {
     setProducts(removeProduct(products, selectedID));
   };
 
-  // const captureClientHandler = (event) => {
-  //   setNameClient(event.target.value);
-  // };
-
   return (
     <Aux>
       <ProductsArea

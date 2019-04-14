@@ -14,6 +14,7 @@ const ProductsArea = ({
 
   return (
     <div className={styles.productsArea}>
+      <h3>Selecciona el producto de tu preferencia: </h3>
       {error && (
       <strong>
 Error:
@@ -24,8 +25,6 @@ Error:
       {loading && <span>Loading...</span>}
       {value && (
       <div>
-            Selecciona Producto de Preferencia:
-        {' '}
         {value.docs.map(doc => (
           <Product
             key={doc.id}
