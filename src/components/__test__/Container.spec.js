@@ -39,11 +39,16 @@ describe('Container', () => {
   });
   it('container', async () => {
     const { getByTestId, queryAllByTestId } = render(<Container />);
+
+    let productTableItems = queryAllByTestId('productTableItem');
+    expect(productTableItems).toHaveLength(0);
+
     const addOrderBtn = await waitForElement(() => getByTestId('1-addOrderItem-btn'));
     await act(async () => {
       fireEvent.click(addOrderBtn);
     })
-    let productTableItems = queryAllByTestId('productTableItem');
+
+    productTableItems = queryAllByTestId('productTableItem');
     expect(productTableItems).toHaveLength(1);
     
   })
