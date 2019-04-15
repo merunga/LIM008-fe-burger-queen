@@ -2,9 +2,9 @@ import React from 'react';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import PropTypes from 'prop-types';
 import Product from './Product';
-import db from '../../../services/firestore';
+import db from '../../lib/firestore';
 import styles from './ProductsArea.module.css';
-import Spinner from '../../UI/Spinner/Spinner';
+import Spinner from '../common/Spinner';
 
 const ProductsArea = ({
   removedProduct, addedProduct,
