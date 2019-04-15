@@ -29,7 +29,7 @@ const fixtureData = {
   }
 };
 
-// global.firebase = new MockFirebase(fixtureData, {isNaiveSnapshotListenerEnabled: true});
+ global.firebase = new MockFirebase(fixtureData, {isNaiveSnapshotListenerEnabled: true});
   
 describe('Container', () => {
   it('Container', () => {
@@ -37,6 +37,7 @@ describe('Container', () => {
     let productTableItems = queryAllByTestId('productTableItem');
     expect(productTableItems).toHaveLength(0);
   });
+
   it('container', async () => {
     const { getByTestId, queryAllByTestId } = render(<Container />);
 
@@ -50,16 +51,30 @@ describe('Container', () => {
 
     productTableItems = queryAllByTestId('productTableItem');
     expect(productTableItems).toHaveLength(1);
+
     
-  })
+  // })
 });
 
-// describe('addOrderToFirebase', () => {
-//   it('deberia poder agregar una orden a firebase', (done) => {
-//     addOrderToFirebase = () => {
-//       expect(users.clientsName).toBe('cinthya');
-//       done();
-//     }
-//   });
-// });
+describe('addOrderToFirebase', () => {
+  it('deberia poder agregar una orden a firebase', (done) => {
+    const getCollection = (callback) => {
+      const db = firebase.firestore();
+      db.collection('users').onSnapshot(querySnapshot => {
+        const userData = [];
+        querySnapshot.forEach(doc => {
+          userData.push({ 
+            id: doc.id,
+            ...doc.data(), 
+          });
+        });
+        callback(userData);
+      });
+    };
+    getCollection((data) => {
+      expect(data).toHaveLength(1)
+      done();
+    });
+  });
+});
 
