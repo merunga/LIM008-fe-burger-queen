@@ -1,8 +1,6 @@
 import menu from '../../src/data/menu.json';
 
 export default (url) => {
-  console.log('dentro de axios', url)
-
   return new Promise((resolve) => {
     resolve({
       data: [
