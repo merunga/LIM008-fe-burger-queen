@@ -28,11 +28,11 @@ Error:
       <div>
         {value.docs.map(doc => (
           <Product
-            key={doc.id}
+            id={doc.id}
             label={doc.data().label}
             price={doc.data().price}
-            removed={() => removedProduct(doc.id)}
-            added={() => addedProduct(doc.id, doc.data().price, doc.data().label)}
+            removed={removedProduct}
+            added={addedProduct}
           />
         ))}
       </div>
