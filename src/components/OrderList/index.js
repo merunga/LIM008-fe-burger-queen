@@ -1,9 +1,9 @@
 import React from 'react';
 
-const orderSection = () => (
+const orderList = () => (
   <div>
     <p>Lista de Ordenes</p>
   </div>
 );
 
-export default orderSection;
+export default orderList;

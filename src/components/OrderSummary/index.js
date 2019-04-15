@@ -1,11 +1,10 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import Aux from '../../../hoc/Utils/Utils';
 import Order from './Order';
-import styles from './OrderSumary.module.css';
+import styles from './OrderSummary.module.css';
 
-const orderSumary = ({
+const orderSummary = ({
   products, totalAmount, purchaseCancelled, purchaseContinued, clientName, captureNameClient,
 }) => {
   let dinamicProduct = products
@@ -24,8 +23,8 @@ const orderSumary = ({
   }
 
   return (
-    <Aux>
-      <div className={styles.OrderSumary}>
+    <>
+      <div className={styles.OrderSummary}>
         <h3>Resumen de Pedido</h3>
         <div>
           {dinamicProduct}
@@ -48,13 +47,13 @@ Monto Total a Pagar:
           <button type="button" onClick={purchaseContinued}>Continuar</button>
         </div>
       </div>
-    </Aux>
+    </>
   );
 };
 
-export default orderSumary;
+export default orderSummary;
 
-orderSumary.propTypes = {
+orderSummary.propTypes = {
   products: PropTypes.arrayOf.isRequired,
   totalAmount: PropTypes.number.isRequired,
   clientName: PropTypes.string.isRequired,

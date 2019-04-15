@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 
-import Aux from '../../hoc/Utils/Utils';
-import ProductsArea from '../../components/Menu/ProductsArea/ProductsArea';
-import OrderSumary from '../../components/Menu/OrderSumary/OrderSumary';
-import { addProduct, removeProduct, estimateAmount } from '../../services/pureFunctions';
-import db from '../../services/firestore';
+import ProductsArea from '../ProductsArea';
+import OrderSummary from '../OrderSummary';
+import { addProduct, removeProduct, estimateAmount } from '../../lib/product-controller';
+import db from '../../lib/firestore';
 
-const MenuBuilder = () => {
+const OrderBuilder = () => {
   const [products, setProducts] = useState([]);
   const [clientName, setNameClient] = useState('');
 
@@ -38,12 +37,12 @@ const MenuBuilder = () => {
   };
 
   return (
-    <Aux>
+    <>
       <ProductsArea
         addedProduct={addProductHandler}
         removedProduct={removeProductHandler}
       />
-      <OrderSumary
+      <OrderSummary
         products={products}
         totalAmount={estimateAmount(products)}
         clientName={clientName}
@@ -51,8 +50,8 @@ const MenuBuilder = () => {
         purchaseContinued={purchaseContinueHandler}
         purchaseCancelled={purchaseCancelHandler}
       />
-    </Aux>
+    </>
   );
 };
 
-export default MenuBuilder;
+export default OrderBuilder;
