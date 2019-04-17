@@ -28,6 +28,7 @@ Error:
       <div>
         {value.docs.map(doc => (
           <Product
+            key={doc.id}
             id={doc.id}
             label={doc.data().label}
             price={doc.data().price}
