@@ -1,9 +1,0 @@
-.productsArea {
-    width: 60%;
-    display: table;
-    float: left;
-    margin: auto;
-    padding: 10px 0;
-    flex-flow: row;
-    text-align: center;
-}

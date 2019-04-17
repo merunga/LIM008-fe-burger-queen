@@ -2,9 +2,9 @@ import React from 'react';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import PropTypes from 'prop-types';
 import Product from './Product';
-import db from '../../lib/firestore';
+import db from '../../../lib/firestore';
 import styles from './ProductsArea.module.css';
-import Spinner from '../common/Spinner';
+import Spinner from '../../common/Spinner';
 
 const ProductsArea = ({
   removedProduct, addedProduct,
@@ -31,8 +31,8 @@ Error:
             id={doc.id}
             label={doc.data().label}
             price={doc.data().price}
-            removed={removedProduct}
-            added={addedProduct}
+            remove={removedProduct}
+            add={addedProduct}
           />
         ))}
       </div>

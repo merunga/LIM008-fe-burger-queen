@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Order from './Order';
 import styles from './OrderSummary.module.css';
+import Button from '../../common/Button';
 
 const orderSummary = ({
   products, totalAmount, purchaseCancelled, purchaseContinued, clientName, captureNameClient,
@@ -10,9 +11,9 @@ const orderSummary = ({
   let dinamicProduct = products
     .map(pro => (
       <Order
+        id={pro.id}
         key={pro.id}
         label={pro.label}
-        price={pro.price}
         cant={pro.cant}
         subTotal={pro.cant * pro.price}
       />
@@ -36,6 +37,7 @@ Monto Total a Pagar:
             {totalAmount}
           </h5>
           <input
+            data-testid="name-client"
             type="text"
             value={clientName}
             placeholder="Ingresa el nombre del cliente"
@@ -43,8 +45,8 @@ Monto Total a Pagar:
           />
         </div>
         <div>
-          <button type="button" onClick={purchaseCancelled}>Cancelar</button>
-          <button type="button" onClick={purchaseContinued}>Continuar</button>
+          <Button clicked={purchaseCancelled} btnType="Danger" dataid="cancel-order">Cancelar</Button>
+          <Button clicked={purchaseContinued} btnType="Success" dataid="send-to-kitchen">Continuar</Button>
         </div>
       </div>
     </>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import ProductsArea from '../ProductsArea';
-import OrderSummary from '../OrderSummary';
+import ProductsArea from './ProductsArea';
+import OrderSummary from './OrderSummary';
 import { addProduct, removeProduct, estimateAmount } from '../../lib/product-controller';
 import db from '../../lib/firestore';
 
