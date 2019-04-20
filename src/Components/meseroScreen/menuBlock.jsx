@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../header/header';
-import NameClient from './menuBlock/nameClient/nameClient';
 import BreakfastMenu from './menuBlock/menuList/breakfastMenu';
 import RestOfTheDayMenu from './menuBlock/menuList/restOfTheDayMenu';
 import Orders from './orderBlock/orders/orders';
@@ -37,18 +36,16 @@ const Waiter = () => {
   };
 
   const calculateTotal = (order) => {
-    const total = (order.map(elem => elem.cantidad * elem.precio)).reduce((sum, value) => sum + value, 0);
+    const total = order.map(e => e.cantidad * e.precio).reduce((sum, value) => sum + value, 0);
     return total;
   };
 
-  const saveOrder = () => {
-    return db.collection('Orders').add({
-      Nombre: nameInitial,
-      Productos: orders,
-      Precio: calculateTotal(orders),
-      Fecha: Date(),
-    });
-  };
+  const saveOrder = () => db.collection('Orders').add({
+    Nombre: nameInitial,
+    Productos: orders,
+    Precio: calculateTotal(orders),
+    Fecha: Date(),
+  });
   return (
     <div>
       <Header />
@@ -64,10 +61,12 @@ const Waiter = () => {
       <div>
         {menu ? <BreakfastMenu data={data} addingItem={addingItem} orders={orders} /> : (<RestOfTheDayMenu data={data} addingItem={addingItem} orders={orders} />)}
       </div>
-      <HeaderOrders />
-      <NameClient nameInitial={nameInitial} setName={setName} />
+      <HeaderOrders nameInitial={nameInitial} setName={setName} />
       <Orders orders={orders} setOrder={setOrder} trashOrder={trashOrder} />
-      <div>Total:{calculateTotal(orders)}</div>
+      <div>
+        <div>Total:</div>
+        {calculateTotal(orders)}
+      </div>
       <div className="container-fluid">
         <div className="row justify-content-center">
           <button type="button" className="col-4 selection" onClick={() => setOrder([])}>Anular orden</button>
