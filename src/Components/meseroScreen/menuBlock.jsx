@@ -54,8 +54,8 @@ const Waiter = () => {
           <div className="title">Menú</div>
         </div>
         <div className="row justify-content-center">
-          <button type="button" className="col-4 selection" onClick={() => setMenu(!menu)} data-testid="render-breakfast">Desayuno</button>
-          <button type="button" className="col-4 selection" onClick={() => setMenu(!menu)}>Resto del día</button>
+          <button type="button" className="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-1 selection" onClick={() => setMenu(!menu)} data-testid="render-breakfast">Desayuno</button>
+          <button type="button" className="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-1 selection" onClick={() => setMenu(!menu)}>Resto del día</button>
         </div>
       </div>
       <div>
@@ -69,8 +69,8 @@ const Waiter = () => {
       </div>
       <div className="container-fluid">
         <div className="row justify-content-center">
-          <button type="button" className="col-4 selection" onClick={() => setOrder([])}>Anular orden</button>
-          <button type="button" className="col-4 selection" onClick={() => saveOrder()}>Enviar a cocina</button>
+          <button type="button" className="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 selection" onClick={() => setOrder([])}>Anular orden</button>
+          <button type="button" className="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 selection" onClick={() => saveOrder()}>Enviar a cocina</button>
         </div>
       </div>
     </div>

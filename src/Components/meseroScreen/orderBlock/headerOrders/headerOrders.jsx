@@ -12,9 +12,9 @@ const HeaderOrders = ({ nameInitial, setName }) => (
       <input className="common" value={nameInitial.name} onChange={e => setName({ ...nameInitial, name: e.currentTarget.value })} data-testid="name-customer" />
     </form>
     <div className="row justify-content-center">
-      <div className="col-5 selection">Descripción</div>
-      <div className="col-3 selection">Cantidad</div>
-      <div className="col-4 selection">Precio</div>
+      <div className="col-5">Descripción</div>
+      <div className="col-3">Cantidad</div>
+      <div className="col-4">Precio</div>
     </div>
   </div>
 );
