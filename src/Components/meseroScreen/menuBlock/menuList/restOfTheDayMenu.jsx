@@ -10,6 +10,7 @@ const RestOfTheDayMenu = ({ data, orders, addingItem }) => (
           <button type="button" className="btn" onClick={() => addingItem(item, orders)} data-testid="name-button-restday">{item.nombre}</button>
         );
       }
+      return null;
     })}
   </div>
 );
