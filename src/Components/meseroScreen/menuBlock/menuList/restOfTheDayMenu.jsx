@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 import './menuList.css';
 
 const RestOfTheDayMenu = ({ data, orders, addingItem }) => (
-  <div>
+  <div data-testid="container-restoftheday">
     {data.map((item) => {
       if (item.categoría === 'Resto del día') {
         return (
           <div key={item.id}>
-            <button type="button" onClick={() => addingItem(item, orders)}>{item.nombre}</button>
-            <button type="button" onClick={() => addingItem(item, orders)}>{item.precio}</button>
+            <button type="button" onClick={() => addingItem(item, orders)} data-testid="name-button-restday">{item.nombre}</button>
           </div>
         );
       }

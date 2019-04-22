@@ -8,8 +8,7 @@ const BreakfastMenu = ({ data, orders, addingItem }) => (
       if (item.categoría === 'Desayuno') {
         return (
           <div key={item.id}>
-            <button type="button" onClick={() => addingItem(item, orders)} data-testid="count">{item.nombre}</button>
-            <button type="button" onClick={() => addingItem(item, orders)}>{item.precio}</button>
+            <button type="button" onClick={() => addingItem(item, orders)} data-testid="name-rest-breakfast">{item.nombre}</button>
           </div>
         );
       }
@@ -19,6 +18,6 @@ const BreakfastMenu = ({ data, orders, addingItem }) => (
 export default BreakfastMenu;
 BreakfastMenu.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
-  // orders: PropTypes.arrayOf(PropTypes.object).isRequired,
-  // addingItem: PropTypes.func.isRequired,
+  orders: PropTypes.arrayOf(PropTypes.object).isRequired,
+  addingItem: PropTypes.func.isRequired,
 };
