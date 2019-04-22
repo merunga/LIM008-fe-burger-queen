@@ -54,7 +54,7 @@ const Waiter = () => {
           <div className="title">Menú</div>
         </div>
         <div className="row justify-content-center">
-          <button type="button" className="col-4 selection" onClick={() => setMenu(!menu)}>Desayuno</button>
+          <button type="button" className="col-4 selection" onClick={() => setMenu(!menu)} data-testid="render-breakfast">Desayuno</button>
           <button type="button" className="col-4 selection" onClick={() => setMenu(!menu)}>Resto del día</button>
         </div>
       </div>
