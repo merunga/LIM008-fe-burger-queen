@@ -66,8 +66,13 @@ const Waiter = () => {
       </div>
       <HeaderOrders nameInitial={nameInitial} setName={setName} />
       <Orders orders={orders} setOrder={setOrder} trashOrder={trashOrder} />
+<<<<<<< HEAD
       <div className="common selection">
         <div className="common">Total:</div>
+=======
+      <div>
+        <div>Totalholacomo estas:</div>
+>>>>>>> 5cc1e13d6477324f47a8eb55a643a7e7c1e49ea4
         {calculateTotal(orders)}
       </div>
       <div className="container-fluid">
