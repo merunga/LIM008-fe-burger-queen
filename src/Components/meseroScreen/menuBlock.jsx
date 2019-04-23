@@ -7,13 +7,16 @@ import HeaderOrders from './orderBlock/headerOrders/headerOrders';
 import './menuBlock.css';
 import firebase from '../../firebaseConfig';
 
-export const db = firebase.firestore();
+// export const db = firebase.firestore();
 const Waiter = () => {
   const [nameInitial, setName] = useState({ name: '' });
   const [orders, setOrder] = useState([]);
   const [menu, setMenu] = useState(false);
   const [data, setData] = useState([]);
-
+  firebase.firestore().enablePersistence()
+  .then(function() {
+      // Initialize Cloud Firestore through firebase
+    const db = firebase.firestore();
   useEffect(() => {
     db.collection('Menú').get()
       .then((json) => {
@@ -24,7 +27,7 @@ const Waiter = () => {
         setData(doc);
       });
   }, []);
-
+  });
   const addingItem = (item, order) => {
     const itemOrder = order.find(elem => elem.id === item.id);
     return itemOrder ? setOrder([...order]) : setOrder([item, ...order]);
