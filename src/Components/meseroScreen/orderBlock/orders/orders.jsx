@@ -29,7 +29,7 @@ const Orders = ({ orders, trashOrder, setOrder }) => {
     <div className="container-fluid">
       <div className="row" key={elem.id}>
         <div className="col-5 common">{elem.nombre}</div>
-        <div className="col-3 col-sm-4 col-md-4 common">
+        <div className="col-3 common">
           <button type="button" className="selection" onClick={() => plusOne(elem.id)}><i className="fas fa-plus-circle" /></button>
           <span className="common">{elem.cantidad}</span>
           <button type="button" className="selection" onClick={() => minusOne(elem, elem.id)}><i className="fas fa-minus-circle" /></button>
