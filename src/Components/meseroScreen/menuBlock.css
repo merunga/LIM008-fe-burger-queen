@@ -8,3 +8,14 @@
 	padding: 5px;
 	margin: 3%;
 }
+.description{
+	font-weight: 650;
+font-size: 16px;
+}
+.total{
+	display: inline-block;
+background-color: #f8d856;
+color: rgba(220, 20, 60);
+	border-radius: 10px;
+	padding: 5px;
+}

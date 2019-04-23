@@ -9,12 +9,12 @@ const HeaderOrders = ({ nameInitial, setName }) => (
     </div>
     <form onSubmit={e => e.preventDefault()}>
       <div className="name common">Cliente:</div>
-      <input className="common" value={nameInitial.name} onChange={e => setName({ ...nameInitial, name: e.currentTarget.value })} data-testid="name-customer" />
+      <input className="common input" value={nameInitial.name} onChange={e => setName({ ...nameInitial, name: e.currentTarget.value })} data-testid="name-customer" />
     </form>
-    <div className="row justify-content-center">
-      <div className="col-5">Descripción</div>
-      <div className="col-3">Cantidad</div>
-      <div className="col-4">Precio</div>
+    <div className="row justify-content-center ">
+      <div className="col-5 border"><p>Descripción</p></div>
+      <div className="col-4 border">Cantidad</div>
+      <div className="col-3 border ">Precio</div>
     </div>
   </div>
 );

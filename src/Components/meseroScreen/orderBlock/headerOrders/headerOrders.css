@@ -4,7 +4,7 @@
 	color: #1c1c1c;
 	margin-top: 30px;
 }
-.comm{
+.common{
 	padding: 6px;
 	border-radius: 10px;
 	display: inline-block;
@@ -15,4 +15,26 @@ border-radius: 10px;
 margin-right: 2%;
 border-color: #1c1c1c;
 border-width: thick;
+}
+.name{
+	outline: none;
+	border: none;
+	background-color: #f8d856;
+	color: rgba(220, 20, 60);
+	font-weight: 700;
+	border-radius: 10px;
+	padding: 5px;
+	margin: 3%;
+}
+input{
+	width: 300px;
+}
+.border{
+	border: none!important;
+font-weight: 900;
+font-size: 18px
+}
+.description{
+	font-weight: 650;
+font-size: 16px
 }

@@ -26,16 +26,19 @@ const Orders = ({ orders, trashOrder, setOrder }) => {
     setOrder(newOrders);
   };
   return (orders.map(elem => (
-    <div key={elem.id}>
-      <div>
-        {elem.nombre}
-        <button type="button" onClick={() => trashOrder(elem.id)}><i className="fas fa-trash-alt" /></button>
-        <button type="button" onClick={() => plusOne(elem.id)}><i className="fas fa-plus-circle" /></button>
-        <div>{elem.cantidad}</div>
-        <button type="button" onClick={() => minusOne(elem, elem.id)}><i className="fas fa-minus-circle" /></button>
-        <div>{elem.cantidad * elem.precio}</div>
+    <div className="container-fluid">
+      <div key={elem.id} className="row justify-content-center">
+        <div className="col-5 col-sm-5 comm description">{elem.nombre}</div>
+        <div className="col-4 col-sm-4 comm options">
+          <button type="button" className="comm selection" onClick={() => plusOne(elem.id)}><i className="fas fa-plus-circle" /></button>
+          <div className="comm description">{elem.cantidad}</div>
+          <button type="button" className="comm selection" onClick={() => minusOne(elem, elem.id)}><i className="fas fa-minus-circle" /></button>
+          <button type="button" className="comm selection" onClick={() => trashOrder(elem.id)}><i className="fas fa-trash-alt" /></button>
+        </div>
+        <div className="col-3 col-sm-3 comm description">{elem.cantidad * elem.precio}</div>
       </div>
     </div>
+
   )));
 };
 export default Orders;
