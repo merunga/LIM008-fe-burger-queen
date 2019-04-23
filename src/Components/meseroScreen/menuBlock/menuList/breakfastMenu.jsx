@@ -8,7 +8,7 @@ const BreakfastMenu = ({ data, orders, addingItem }) => (
       if (item.categoría === 'Desayuno') {
         return (
           <div key={item.id}>
-            <button type="button" onClick={() => addingItem(item, orders)} data-testid="name-rest-breakfast">{item.nombre}</button>
+            <button type="button" className="btn" onClick={() => addingItem(item, orders)} data-testid="name-rest-breakfast">{item.nombre}</button>
           </div>
         );
       }

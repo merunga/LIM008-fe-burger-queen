@@ -13,8 +13,8 @@ const Waiter = () => {
   const [orders, setOrder] = useState([]);
   const [menu, setMenu] = useState(false);
   const [data, setData] = useState([]);
-  firebase.firestore().enablePersistence()
-  .then(function() {
+  // firebase.firestore().enablePersistence()
+  // .then(function() {
       // Initialize Cloud Firestore through firebase
     const db = firebase.firestore();
   useEffect(() => {
@@ -27,7 +27,7 @@ const Waiter = () => {
         setData(doc);
       });
   }, []);
-  });
+  // });
   const addingItem = (item, order) => {
     const itemOrder = order.find(elem => elem.id === item.id);
     return itemOrder ? setOrder([...order]) : setOrder([item, ...order]);
@@ -66,8 +66,8 @@ const Waiter = () => {
       </div>
       <HeaderOrders nameInitial={nameInitial} setName={setName} />
       <Orders orders={orders} setOrder={setOrder} trashOrder={trashOrder} />
-      <div>
-        <div>Total:</div>
+      <div className="common selection">
+        <div className="common">Total:</div>
         {calculateTotal(orders)}
       </div>
       <div className="container-fluid">
