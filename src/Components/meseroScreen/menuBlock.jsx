@@ -64,7 +64,7 @@ const Waiter = () => {
       <HeaderOrders nameInitial={nameInitial} setName={setName} />
       <Orders orders={orders} setOrder={setOrder} trashOrder={trashOrder} />
       <div>
-        <div>Total:</div>
+        <div>Totalholacomo estas:</div>
         {calculateTotal(orders)}
       </div>
       <div className="container-fluid">
