@@ -13,11 +13,10 @@ const Waiter = () => {
   const [orders, setOrder] = useState([]);
   const [menu, setMenu] = useState(false);
   const [data, setData] = useState([]);
-
   // firebase.firestore().enablePersistence()
   // .then(function() {
-  //     // Initialize Cloud Firestore through firebase
-  //   const db = firebase.firestore();
+  // Initialize Cloud Firestore through firebase
+  // const db = firebase.firestore();
   useEffect(() => {
     db.collection('Menú').get()
       .then((json) => {
@@ -28,7 +27,7 @@ const Waiter = () => {
         setData(doc);
       });
   }, []);
-
+  // });
   const addingItem = (item, order) => {
     const itemOrder = order.find(elem => elem.id === item.id);
     return itemOrder ? setOrder([...order]) : setOrder([item, ...order]);
@@ -51,7 +50,7 @@ const Waiter = () => {
     Fecha: Date(),
   });
   return (
-    <div >
+    <div>
       <Header />
       <div className="first block">
         <div className="container-fluid">
@@ -67,18 +66,16 @@ const Waiter = () => {
           {menu ? <BreakfastMenu data={data} addingItem={addingItem} orders={orders} /> : (<RestOfTheDayMenu data={data} addingItem={addingItem} orders={orders} />)}
         </div>
       </div>
-      <div className="second block">
-        <HeaderOrders nameInitial={nameInitial} setName={setName} />
-        <Orders orders={orders} setOrder={setOrder} trashOrder={trashOrder} />
-        <div className="description total">
-          <div className="description total">Total:</div>
-          {calculateTotal(orders)}
-        </div>
-        <div className="container-fluid">
-          <div className="row justify-content-center">
-            <button type="button" className="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 selection" onClick={() => setOrder([])}>Anular orden</button>
-            <button type="button" className="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 selection" onClick={() => saveOrder()}>Enviar a cocina</button>
-          </div>
+      <HeaderOrders nameInitial={nameInitial} setName={setName} />
+      <Orders orders={orders} setOrder={setOrder} trashOrder={trashOrder} />
+      <div className="common selection">
+        <div className="common">Total:</div>
+        {calculateTotal(orders)}
+      </div>
+      <div className="container-fluid">
+        <div className="row justify-content-center">
+          <button type="button" className="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 selection" onClick={() => setOrder([])}>Anular orden</button>
+          <button type="button" className="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 selection" onClick={() => saveOrder()}>Enviar a cocina</button>
         </div>
       </div>
     </div>

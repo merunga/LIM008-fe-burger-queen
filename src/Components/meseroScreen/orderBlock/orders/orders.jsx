@@ -27,15 +27,15 @@ const Orders = ({ orders, trashOrder, setOrder }) => {
   };
   return (orders.map(elem => (
     <div className="container-fluid">
-      <div key={elem.id} className="row justify-content-center">
-        <div className="col-5 col-sm-5 comm description">{elem.nombre}</div>
-        <div className="col-4 col-sm-4 comm options">
-          <button type="button" className="comm selection" onClick={() => plusOne(elem.id)}><i className="fas fa-plus-circle" /></button>
-          <div className="comm description">{elem.cantidad}</div>
-          <button type="button" className="comm selection" onClick={() => minusOne(elem, elem.id)}><i className="fas fa-minus-circle" /></button>
-          <button type="button" className="comm selection" onClick={() => trashOrder(elem.id)}><i className="fas fa-trash-alt" /></button>
+      <div className="row" key={elem.id}>
+        <div className="col-5 common">{elem.nombre}</div>
+        <div className="col-3 common">
+          <button type="button" className="selection" onClick={() => plusOne(elem.id)}><i className="fas fa-plus-circle" /></button>
+          <span className="common">{elem.cantidad}</span>
+          <button type="button" className="selection" onClick={() => minusOne(elem, elem.id)}><i className="fas fa-minus-circle" /></button>
+          <button type="button" className="selection" onClick={() => trashOrder(elem.id)}><i className="fas fa-trash-alt" /></button>
         </div>
-        <div className="col-3 col-sm-3 comm description">{elem.cantidad * elem.precio}</div>
+        <div className="col-4 common">{elem.cantidad * elem.precio}</div>
       </div>
     </div>
 

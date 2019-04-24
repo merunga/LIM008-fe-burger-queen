@@ -8,6 +8,9 @@
 	padding: 6px;
 	border-radius: 10px;
 	display: inline-block;
+		font-weight: 700;
+		font-size: 16px;
+
 }
 .client{
 background-color: #ffffff;
@@ -16,25 +19,13 @@ margin-right: 2%;
 border-color: #1c1c1c;
 border-width: thick;
 }
-.name{
+.customer{
 	outline: none;
 	border: none;
-	background-color: #f8d856;
-	color: rgba(220, 20, 60);
-	font-weight: 700;
+	background-color: rgba(220, 20, 60, .85);
+	color: #f8d856;
+	font-weight: 500;
 	border-radius: 10px;
 	padding: 5px;
-	margin: 3%;
-}
-input{
-	width: 300px;
-}
-.border{
-	border: none!important;
-font-weight: 900;
-font-size: 18px
-}
-.description{
-	font-weight: 650;
-font-size: 16px
+	margin: .5%;
 }
