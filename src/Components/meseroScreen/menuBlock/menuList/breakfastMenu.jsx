@@ -12,6 +12,7 @@ const BreakfastMenu = ({ data, orders, addingItem }) => (
           </div>
         );
       }
+      return null;
     })}
   </div>
 );

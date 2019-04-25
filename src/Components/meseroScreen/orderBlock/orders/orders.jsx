@@ -14,7 +14,7 @@ const Orders = ({ orders, trashOrder, setOrder }) => {
     });
     setOrder(newOrders);
   };
-  const minusOne = (elem, id) => {
+  const minusOne = (id) => {
     const newOrders = orders.map((e) => {
       if (e.id === id) {
         const newElem = { ...e };
@@ -25,22 +25,26 @@ const Orders = ({ orders, trashOrder, setOrder }) => {
     });
     setOrder(newOrders);
   };
-  return (orders.map(elem => (
-    <div className="container-fluid">
-      <div className="row" key={elem.id}>
-        <div className="col-5 common">{elem.nombre}</div>
-        <div className="col-3 common">
-          <button type="button" className="selection" onClick={() => plusOne(elem.id)}><i className="fas fa-plus-circle" /></button>
-          <span className="common">{elem.cantidad}</span>
-          <button type="button" className="selection" onClick={() => minusOne(elem, elem.id)}><i className="fas fa-minus-circle" /></button>
-          <button type="button" className="selection" onClick={() => trashOrder(elem.id)}><i className="fas fa-trash-alt" /></button>
+  return (
+    <div data-testid="orders-container">
+      {orders.map(elem => (
+        <div className="container-fluid">
+          <div className="row" key={elem.id}>
+            <div className="col-5 common" data-testid="name-order">{elem.nombre}</div>
+            <div className="col-3 common">
+              <button type="button" className="selection" data-testid="plus-order" onClick={() => plusOne(elem.id)}><i className="fas fa-plus-circle" /></button>
+              <span className="common">{elem.cantidad}</span>
+              <button type="button" className="selection" data-testid="minus-order" onClick={() => minusOne(elem.id)}><i className="fas fa-minus-circle" /></button>
+              <button type="button" className="selection" data-testid="trash-order" onClick={() => trashOrder(elem.id)}><i className="fas fa-trash-alt" /></button>
+            </div>
+            <div className="col-4 common">{elem.cantidad * elem.precio}</div>
+          </div>
         </div>
-        <div className="col-4 common">{elem.cantidad * elem.precio}</div>
-      </div>
+      ))}
     </div>
-
-  )));
+  );
 };
+
 export default Orders;
 Orders.propTypes = {
   orders: PropTypes.arrayOf(PropTypes.object).isRequired,
