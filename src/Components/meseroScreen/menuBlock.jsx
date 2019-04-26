@@ -70,7 +70,7 @@ const Waiter = () => {
       <Orders orders={orders} setOrder={setOrder} trashOrder={trashOrder} />
       <div className="common selection">
         <div className="common">Total:</div>
-        {calculateTotal(orders)}
+        <div data-testid="total-id">{calculateTotal(orders)}</div>
       </div>
       <div className="container-fluid">
         <div className="row justify-content-center">
