@@ -1,0 +1,23 @@
+.selection{
+	outline: none;
+	border: none;
+	background-color: #f8d856;
+	color: rgba(220, 20, 60);
+	font-weight: 700;
+	border-radius: 10px;
+	padding: 5px;
+	margin: 3%;
+}
+.common{
+	display: inline-block;
+	
+}
+.block{
+	display: inline-block;
+}
+/*.first{
+	position: fixed;
+}
+.second{
+	position: fixed;
+}*/

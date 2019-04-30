@@ -1,0 +1,10 @@
+.head{
+  background-color: rgba(220, 20, 60, .83);
+
+}
+.titlesHeader{
+  font-size: calc(10px + 2vmin);
+  color: #e9c94c;
+  /* font-weight: 700; */
+  font-family: 'Ultra', serif;
+}

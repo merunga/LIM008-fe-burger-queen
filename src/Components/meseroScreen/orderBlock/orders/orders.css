@@ -1,0 +1,15 @@
+.common{
+	display: inline-block;
+	font-weight: 650;
+	font-size: 16px;
+}
+.selection{
+	outline: none;
+	border: none;
+	background-color: #f8d856;
+	color: rgba(220, 20, 60);
+	font-weight: 700;
+	border-radius: 10px;
+	padding: 5px;
+	margin: 3%;
+}

@@ -1,0 +1,10 @@
+.btn{
+	outline: none;
+	border: none;
+	background-color: rgba(220, 20, 60, .85);
+	color: #f8d856;
+	font-weight: 500;
+	border-radius: 10px;
+	padding: 5px;
+	margin: .5%;
+}

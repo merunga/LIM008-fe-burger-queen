@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+  background-image: url(./img/burger.jpg);
+  background-repeat: repeat;
+  max-height: 100%;
+  width: 100%;
+  border: none
+  /* background-color: aqua */
+}
+
+.image{
+  background-color: rgba(252, 252, 252, 0.829);
+
+}
+ /* .column{
+margin: 1%
+}  */
+
+.common{
+  display: inline-block;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
