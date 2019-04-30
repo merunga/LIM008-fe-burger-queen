@@ -12,8 +12,16 @@ const fixtureData = {
           precio: 5,
           producto: 'Breakfast',
         },
+        abc2d: {
+          cantidad: 0,
+          categoría: 'Resto del día',
+          id: 'P2',
+          nombre: 'Hamburguesa simple de pollo',
+          precio: 10,
+          producto: 'Hamburguesas',
+        },
       },
     },
   },
 };
-global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
+export default new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });

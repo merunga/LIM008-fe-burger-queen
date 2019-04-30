@@ -52,32 +52,36 @@ const Waiter = () => {
   return (
     <div>
       <Header />
-      <div className="first block">
-        <div className="container-fluid">
-          <div className="row justify-content-center">
-            <div className="title">Menú</div>
+      <div className="container">
+        <div className="row">
+          <div className="first block col-6 ">
+            <div className="row justify-content-center">
+              <div className="title">Menú</div>
+            </div>
+            <div className="row justify-content-center">
+              <button type="button" className="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-1 selection" onClick={() => setMenu(!menu)} data-testid="render-breakfast">Desayuno</button>
+              <button type="button" className="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-1 selection" onClick={() => setMenu(!menu)} data-testid="render-restday">Resto del día</button>
+            </div>
+            <div>
+              {menu ? <BreakfastMenu data={data} addingItem={addingItem} orders={orders} /> : (<RestOfTheDayMenu data={data} addingItem={addingItem} orders={orders} />)}
+            </div>
           </div>
-          <div className="row justify-content-center">
-            <button type="button" className="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-1 selection" onClick={() => setMenu(!menu)} data-testid="render-breakfast">Desayuno</button>
-            <button type="button" className="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-1 selection" onClick={() => setMenu(!menu)}>Resto del día</button>
+          <div className="second block col-6">
+            <HeaderOrders nameInitial={nameInitial} setName={setName} />
+            <Orders orders={orders} setOrder={setOrder} trashOrder={trashOrder} />
+            <div className="common selection">
+              <div className="common">Total:</div>
+              <div data-testid="total-id">{calculateTotal(orders)}</div>
+            </div>
+            <div className="container-fluid">
+              <div className="row justify-content-center">
+                <button type="button" className="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 selection" onClick={() => setOrder([])}>Anular orden</button>
+                <button type="button" className="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 selection" onClick={() => saveOrder()}>Enviar a cocina</button>
+              </div>
+            </div>
           </div>
         </div>
-        <div>
-          {menu ? <BreakfastMenu data={data} addingItem={addingItem} orders={orders} /> : (<RestOfTheDayMenu data={data} addingItem={addingItem} orders={orders} />)}
-        </div>
-      </div>
-      <HeaderOrders nameInitial={nameInitial} setName={setName} />
-      <Orders orders={orders} setOrder={setOrder} trashOrder={trashOrder} />
-      <div className="common selection">
-        <div className="common">Total:</div>
-        <div data-testid="total-id">{calculateTotal(orders)}</div>
-      </div>
-      <div className="container-fluid">
-        <div className="row justify-content-center">
-          <button type="button" className="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 selection" onClick={() => setOrder([])}>Anular orden</button>
-          <button type="button" className="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 selection" onClick={() => saveOrder()}>Enviar a cocina</button>
-        </div>
-      </div>
+      </div>     
     </div>
   );
   // })
